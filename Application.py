@@ -13,7 +13,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('!contribute'):
-        await client.send_message(message.channel, 'https://github.com/marcelherd/SEP-Dumbledore')
+    if message.content.startswith('?contribute'):
+        await client.send_message(message.channel, '<https://github.com/marcelherd/SEP-Dumbledore>')
 
 client.run(os.environ['DISCORD_TOKEN'])

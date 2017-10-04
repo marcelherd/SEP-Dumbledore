@@ -1,8 +1,23 @@
 import os
-import discord
+import sys
 import asyncio
 
+try:
+    import discord
+except ImportError:
+    sys.exit('You must install discord.py first.')
+
 client = discord.Client()
+
+token = None
+
+if len(sys.argv) > 1:
+    token = sys.argv[1]
+else:
+    token = os.environ.get('DISCORD_TOKEN')
+
+if token is None:
+    sys.exit('You must set the environment variable DISCORD_TOKEN or pass the token as first argument.')
 
 @client.event
 async def on_ready():
@@ -16,4 +31,4 @@ async def on_message(message):
     if message.content.startswith('?contribute'):
         await client.send_message(message.channel, '<https://github.com/marcelherd/SEP-Dumbledore>')
 
-client.run(os.environ['DISCORD_TOKEN'])
+client.run(token)

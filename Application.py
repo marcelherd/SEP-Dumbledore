@@ -1,11 +1,14 @@
 import os
 import sys
 import asyncio
+import logging
 
 try:
     import discord
 except ImportError:
     sys.exit('You must install discord.py first.')
+
+logging.basicConfig(level = logging.INFO)
 
 client = discord.Client()
 

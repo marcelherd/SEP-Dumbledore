@@ -33,5 +33,7 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith('?contribute'):
         await client.send_message(message.channel, '<https://github.com/marcelherd/SEP-Dumbledore>')
+    if message.content.startswith('?why'):
+        await client.send_message(message.channel, 'Weil wir es können')
 
 client.run(token)
